@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>Train Scheduler</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Css style sheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+    <!-- Moment.js Reference -->
+    <!-- <script src="http://momentjs.com/downloads/moment.js"></script>   -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<!-- Jumbotron -->
+		<div class="jumbotron">
+			<div class="btn-group pull-right">
+			  <button type="button" id="englishLangBtn" class="btn btn-primary">Eng</button>
+			  <button type="button" id="japaneseLangBtn" class="btn btn-primary">日本語</button>
+			</div>
+			<h1 class="text-center" data-eng="Tokyo Train Scheduler" data-jpn="東京電車の時差表">Tokyo Train Scheduler</h1>
+
+		</div>
+
+		<div class="row">
+
+			<div class="col-lg-12">
+
+				<!--Train Schedule -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title" id="schedule-head" data-eng="Local Train Schedule" data-jpn="時差表"><strong>Local Train Schedule</strong></h3>
+					</div>
+					<div class="panel-body">
+						<table class="table table-hover" id="train-schedule-table">
+							<thead>
+								<tr class="lang" id="train_header">
+									<th class="lang" id="train" data-eng="Train Name" data-jpn="電車">Train Name</th>
+									<th class="lang" id="dest" data-eng="Destination" data-jpn="行き先">Destination</th>
+									<th class="lang" data-eng="First Train" data-jpn="始発">First Train</th>
+									<th class="lang" data-eng="Frequency" data-jpn="分ごと">Frequency (Min)</th>
+									<th class="lang" data-eng="Next Arrival" data-jpn="次の電車">Next Arrival</th>
+									<th class="lang" data-eng="Minutes Away" data-jpn="後">Minutes Away</th>
+								</tr>
+							</thead>
+							<tbody></tbody>	
+						</table>
+					</div>
+				</div>
+				
+				<!-- Add train -->
+	          	<div class="panel panel-primary">
+	            	<div class="panel-heading">
+	              		<h3 class="panel-title" data-eng="Add Train" data-jpn="電車を追加する"><strong>
+	              		Add Train</strong></h3>
+	            	</div>
+
+		            <div class="panel-body">
+						<form>
+							<div class="form-group">
+								<label for="train-name-input" data-eng="Train Name" data-jpn="電車">Train Name</label>
+								<input class="form-control" id="train-name-input" type="text">
+							</div>
+							<div class="form-group">
+								<label for="dest-input" data-eng="Destination" data-jpn="行き先">Destination</label>
+								<input class="form-control" type="text" id="dest-input">
+							</div>
+							<div class="form-group">
+								<label for="first-train-time-input" data-eng="First Train Time Input (HH:mm - Military time" data-jpn="始発の電車">First Train Time Input (HH:mm - Military time)</label>
+								<input class="form-control" type="text" id="first-train-time-input">
+							</div>
+							<div class="form-group">
+								<label for="freq-input" data-eng="Frequency" data-jpn="分ごと">Frequency (in minutes)</label>
+								<input class="form-control" type="text" id="freq-input">
+							</div>
+							<button class="btn btn-primary" id="add-train-button" type="submit" data-eng="Submit" data-jpn="発信">Submit</button>
+						</form>			
+					</div>	
+				</div>
+			</div>	
+		</div>	
+	</div>
+<script type="text/javascript" src="assets/javascript/script.js"></script>
+</body>
+</html>
